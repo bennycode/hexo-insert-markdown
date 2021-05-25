@@ -1,0 +1,30 @@
+{
+  "bugs": {
+    "url": "https://github.com/bennycode/hexo-insert-markdown/issues"
+  },
+  "description": "A Hexo plugin that allows you to insert Markdown files in your posts.",
+  "devDependencies": {
+    "generate-changelog": "1.8.0"
+  },
+  "homepage": "https://github.com/bennycode/hexo-insert-markdown#readme",
+  "keywords": [
+    "hexo",
+    "plugin",
+    "markdown",
+    "tag",
+    "include"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "hexo-insert-markdown",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bennycode/hexo-insert-markdown.git"
+  },
+  "scripts": {
+    "release:major": "generate-changelog -M -x \"chore,docs,refactor,style,test\" && yarn changelog:commit && npm version major",
+    "release:minor": "generate-changelog -m -x \"chore,docs,refactor,style,test\" && yarn changelog:commit && npm version minor",
+    "release:patch": "generate-changelog -p -x \"chore,docs,refactor,style,test\" && yarn changelog:commit && npm version patch"
+  },
+  "version": "0.0.0"
+}
