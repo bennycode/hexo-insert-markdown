@@ -27,5 +27,5 @@
     "release:minor": "generate-changelog -m -x \"chore,docs,refactor,style,test\" && yarn changelog:commit && npm version minor",
     "release:patch": "generate-changelog -p -x \"chore,docs,refactor,style,test\" && yarn changelog:commit && npm version patch"
   },
-  "version": "0.0.0"
+  "version": "0.0.1"
 }
