@@ -22,6 +22,7 @@
     "url": "https://github.com/bennycode/hexo-insert-markdown.git"
   },
   "scripts": {
+    "changelog:commit": "git add CHANGELOG.md && git commit -m \"docs: updated CHANGELOG.md\"",
     "release:major": "generate-changelog -M -x \"chore,docs,refactor,style,test\" && yarn changelog:commit && npm version major",
     "release:minor": "generate-changelog -m -x \"chore,docs,refactor,style,test\" && yarn changelog:commit && npm version minor",
     "release:patch": "generate-changelog -p -x \"chore,docs,refactor,style,test\" && yarn changelog:commit && npm version patch"
