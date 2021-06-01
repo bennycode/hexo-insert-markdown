@@ -10,6 +10,6 @@ hexo.extend.tag.register('insertmd', async (args) => {
     throw new Error(`[${pkg.name}] File "${file}" does not exist.`);
   }
 
-  const result = await hexo.post.render(source = file)
+  const result = await hexo.post.render(source = file);
   return result.content;
 }, {async: true});
