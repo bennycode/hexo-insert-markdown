@@ -5,7 +5,7 @@ A [Hexo](https://hexo.io/) plugin that allows you to insert Markdown files in ex
 ## Usage
 
 1. Add this plugin to your Hexo site with `npm install hexo-insert-markdown --save`
-1. Open your Markdown file (a page or post) and include this custom tag: 
+1. Open your Markdown file (a page or post) and include this custom tag:
 
 ```md
 {% insertmd your/file.md %}
@@ -21,9 +21,9 @@ hexo clean && hexo generate
 
 ## FAQ
 
-- Why is this plugin using tags (`{% ... %}`) instead of [helpers](https://hexo.io/docs/helpers) (`<%- ... %>`)? 
+- Why is this plugin using tags (`{% ... %}`) instead of [helpers](https://hexo.io/docs/helpers) (`<%- ... %>`)?
 
-> Helpers cannot be used in source files, that's why this plugin has to use tags. 
+> Helpers cannot be used in source files, that's why this plugin has to use tags.
 
 - What was your motivation?
 
