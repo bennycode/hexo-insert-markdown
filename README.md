@@ -11,10 +11,16 @@ A [Hexo](https://hexo.io/) plugin that allows you to insert Markdown files in ex
 {% insertmd your/file.md %}
 ```
 
-You can also specify a custom separator after every include:
+If you want to specify a custom separator, that is rendered after each include, you can use:
 
 ```md
 {% insertmd your/file.md '---' %}
+```
+
+It is also possible to include all top-level Markdown files from a directory:
+
+```md
+{% insertmd your/directory/with/includes '---' %}
 ```
 
 **Note:** The path to file includes must be relative to the [source directory](https://hexo.io/docs/configuration.html#Directory) of your Hexo installation.
