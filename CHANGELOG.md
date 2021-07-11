@@ -1,3 +1,9 @@
+### 1.2.0 (2021-07-11)
+
+##### New Features
+
+*  Render multiple files from directory (resolves [#2](https://github.com/bennycode/hexo-insert-markdown/pull/2)) ([9cb4efe4](https://github.com/bennycode/hexo-insert-markdown/commit/9cb4efe4f325abbdf7e0b9f78601d9b2f1339dba))
+
 ### 1.1.0 (2021-07-11)
 
 ##### New Features
