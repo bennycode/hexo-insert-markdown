@@ -11,6 +11,12 @@ A [Hexo](https://hexo.io/) plugin that allows you to insert Markdown files in ex
 {% insertmd your/file.md %}
 ```
 
+You can also specify a custom separator after every include:
+
+```md
+{% insertmd your/file.md '---' %}
+```
+
 **Note:** The path to file includes must be relative to the [source directory](https://hexo.io/docs/configuration.html#Directory) of your Hexo installation.
 
 You also have to rebuild your site to see the effect of this plugin:
