@@ -1,3 +1,9 @@
+#### 1.3.1 (2022-04-10)
+
+##### Bug Fixes
+
+*  Pass Hexo context ([f1a25d76](https://github.com/bennycode/hexo-insert-markdown/commit/f1a25d76ebbc719317002aded3b3867f5fda6fd4))
+
 ### 1.3.0 (2022-04-10)
 
 ##### New Features
