@@ -7,7 +7,7 @@ hexo.extend.tag.register(
   'insertmd',
   async args => {
     const [filePath, separator, tocOptions] = parseArgs(args);
-    const html = await renderHtml(filePath, separator);
+    const html = await renderHtml(hexo, filePath, separator);
     const parsedTocOptions = parseTocOptions(tocOptions);
     if (parsedTocOptions) {
       const toc = tocHelper(html, parsedTocOptions);

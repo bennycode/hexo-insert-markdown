@@ -2,16 +2,16 @@ const pkg = require('../package.json');
 const path = require('path');
 const fs = require('fs');
 
-function renderSeparator(separator) {
+function renderSeparator(hexo, separator) {
   return separator ? hexo.render.renderSync({text: separator, engine: 'md'}) : '';
 }
 
-async function renderFile(file, separator) {
+async function renderFile(hexo, file, separator) {
   const {content} = await hexo.post.render(file);
-  return `${content}${renderSeparator(separator)}`;
+  return `${content}${renderSeparator(hexo, separator)}`;
 }
 
-async function renderHtml(filePath, separator) {
+async function renderHtml(hexo, filePath, separator) {
   const file = path.join(hexo.source_dir, filePath);
 
   if (!fs.existsSync(file)) {
@@ -25,11 +25,11 @@ async function renderHtml(filePath, separator) {
       .readdirSync(file)
       .map(markDownFile => `${file}${path.sep}${markDownFile}`)
       .filter(filePath => path.extname(filePath) === '.md')
-      .map(filePath => renderFile(filePath));
+      .map(filePath => renderFile(hexo, filePath));
     const contents = await Promise.all(promises);
-    return contents.join(renderSeparator(separator));
+    return contents.join(renderSeparator(hexo, separator));
   } else {
-    return renderFile(file, separator);
+    return renderFile(hexo, file, separator);
   }
 }
 
