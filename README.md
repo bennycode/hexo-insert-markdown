@@ -50,6 +50,12 @@ All options from the [hexo-util tocObj](https://github.com/hexojs/hexo-util/tree
 {% insertmd error-ts/includes '---' '{ "max_depth": 2 }' %}
 ```
 
+It works without using a separator too:
+
+```md
+{% insertmd error-ts/includes '{ "max_depth": 2 }' %}
+```
+
 **Note:** The TOC options must be valid JSON (curly braces around objects and double quotes around property names).
 
 ## FAQ
