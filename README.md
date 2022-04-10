@@ -30,7 +30,7 @@ If you want to specify a custom separator, that is rendered after each include, 
 
 ### Insert Markdown files from directory
 
-It is also possible to include all top-level Markdown files from a directory:
+To include all top-level Markdown files from a directory insert:
 
 ```md
 {% insertmd your/directory/with/includes '---' %}
@@ -38,7 +38,7 @@ It is also possible to include all top-level Markdown files from a directory:
 
 ### Insert TOC on top of includes
 
-If you want to render a table of contents (TOC) on top of your includes, you have to supply an empty object (`{}`) as third parameter to the plugin:
+If you want to render a table of contents (TOC) on top of your includes, you have to supply an empty object (`{}`) as third parameter to `insertmd`:
 
 ```md
 {% insertmd your/directory/with/includes '---' '{}' %}
