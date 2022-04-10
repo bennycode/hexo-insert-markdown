@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const pkg = require('./package.json');
+const tocHelper = require('hexo/lib/plugins/helper/toc');
 
 hexo.extend.tag.register(
   'insertmd',
@@ -14,25 +15,48 @@ hexo.extend.tag.register(
       return `${content}${renderSeparator(separator)}`;
     };
 
-    const [filePath, separator] = args;
-    const file = path.join(hexo.source_dir, filePath);
+    const parseTocOptions = tocOptions => {
+      if (typeof tocOptions === 'string') {
+        if (tocOptions.length > 0) {
+          return JSON.parse(tocOptions);
+        } else {
+          return {};
+        }
+      } else {
+        return undefined;
+      }
+    };
 
-    if (!fs.existsSync(file)) {
-      throw new Error(`[${pkg.name}] Path "${file}" does not exist.`);
-    }
+    const renderHtml = async (filePath, separator) => {
+      const file = path.join(hexo.source_dir, filePath);
 
-    const isDirectory = fs.lstatSync(file).isDirectory();
+      if (!fs.existsSync(file)) {
+        throw new Error(`[${pkg.name}] Path "${file}" does not exist.`);
+      }
 
-    if (isDirectory) {
-      const promises = fs
-        .readdirSync(file)
-        .map(markDownFile => `${file}${path.sep}${markDownFile}`)
-        .filter(filePath => path.extname(filePath) === '.md')
-        .map(filePath => renderFile(filePath));
-      const contents = await Promise.all(promises);
-      return contents.join(renderSeparator(separator));
+      const isDirectory = fs.lstatSync(file).isDirectory();
+
+      if (isDirectory) {
+        const promises = fs
+          .readdirSync(file)
+          .map(markDownFile => `${file}${path.sep}${markDownFile}`)
+          .filter(filePath => path.extname(filePath) === '.md')
+          .map(filePath => renderFile(filePath));
+        const contents = await Promise.all(promises);
+        return contents.join(renderSeparator(separator));
+      } else {
+        return renderFile(file, separator);
+      }
+    };
+
+    const [filePath, separator, tocOptions] = args;
+    const html = await renderHtml(filePath, separator);
+    const parsedTocOptions = parseTocOptions(tocOptions);
+    if (parsedTocOptions) {
+      const toc = tocHelper(html, parsedTocOptions);
+      return toc + html;
     } else {
-      return renderFile(file, separator);
+      return html;
     }
   },
   {async: true}
