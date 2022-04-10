@@ -1,3 +1,9 @@
+### 1.3.0 (2022-04-10)
+
+##### New Features
+
+*  Option to render a table of contents (TOC) ([#5](https://github.com/bennycode/hexo-insert-markdown/pull/5)) ([af515f16](https://github.com/bennycode/hexo-insert-markdown/commit/af515f164205cc9c687ad4d0309d46ebd55bd2b4))
+
 ### 1.2.0 (2021-07-11)
 
 ##### New Features
