@@ -8,7 +8,7 @@ A [Hexo](https://hexo.io/) plugin that allows you to insert Markdown files in ex
 2. Insert the `{% insertmd %}` tag in your posts or pages to include Markdown content from files
 3. Rebuild your site to see the effect of this plugin: `hexo clean && hexo generate`
 
-**Note:** The path to file includes must be relative to the [source directory](https://hexo.io/docs/configuration.html#Directory) of your Hexo installation.
+**Note:** The path to file includes must be relative to the [source directory](https://hexo.io/docs/configuration.html#Directory) of your Hexo installation. Files in subdirectories of the specified path will also be inserted.
 
 ## Usage
 
@@ -30,7 +30,7 @@ If you want to specify a custom separator, that is rendered after each include, 
 
 ### Insert Markdown files from directory
 
-To include all top-level Markdown files from a directory insert:
+Include all Markdown files from a directory (and its subdirectories):
 
 ```md
 {% insertmd your/directory/with/includes '---' %}

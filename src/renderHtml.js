@@ -1,6 +1,7 @@
 const pkg = require('../package.json');
 const path = require('path');
 const fs = require('fs');
+const {readdir} = require('fs').promises;
 
 function renderSeparator(hexo, separator) {
   return separator ? hexo.render.renderSync({text: separator, engine: 'md'}) : '';
@@ -9,6 +10,19 @@ function renderSeparator(hexo, separator) {
 async function renderFile(hexo, file, separator) {
   const {content} = await hexo.post.render(file);
   return `${content}${renderSeparator(hexo, separator)}`;
+}
+
+/** @see https://stackoverflow.com/a/45130990/451634 */
+async function* getFiles(dir) {
+  const dirents = await readdir(dir, {withFileTypes: true});
+  for (const dirent of dirents) {
+    const res = path.resolve(dir, dirent.name);
+    if (dirent.isDirectory()) {
+      yield* getFiles(res);
+    } else {
+      yield res;
+    }
+  }
 }
 
 async function renderHtml(hexo, filePath, separator) {
@@ -21,10 +35,21 @@ async function renderHtml(hexo, filePath, separator) {
   const isDirectory = fs.lstatSync(file).isDirectory();
 
   if (isDirectory) {
-    const promises = fs
-      .readdirSync(file)
-      .map(markDownFile => `${file}${path.sep}${markDownFile}`)
+    const files = [];
+
+    // Recursively fetch files from parent directory and subdirectories
+    for await (const fileInDirectory of getFiles(file)) {
+      files.push(fileInDirectory);
+    }
+
+    const promises = files
       .filter(filePath => path.extname(filePath) === '.md')
+      .sort(function (a, b) {
+        // Sort all fetched files by their filename (without taking directories into account)
+        const nameA = path.parse(a).base;
+        const nameB = path.parse(b).base;
+        return nameA.localeCompare(nameB);
+      })
       .map(filePath => renderFile(hexo, filePath));
     const contents = await Promise.all(promises);
     return contents.join(renderSeparator(hexo, separator));
