@@ -1,3 +1,9 @@
+#### 1.4.1 (2022-06-23)
+
+##### Other Changes
+
+* //registry.yarnpkg.com/ ([071e6f8b](https://github.com/bennycode/hexo-insert-markdown/commit/071e6f8b1103ec6b548ef3b16f9002f4ecab9ac7))
+
 ### 1.4.0 (2022-06-23)
 
 ##### New Features
