@@ -1,3 +1,9 @@
+#### 1.4.2 (2022-06-23)
+
+##### Bug Fixes
+
+*  Recognize numbers in filenames ([34ea5d66](https://github.com/bennycode/hexo-insert-markdown/commit/34ea5d667aa3a543ff4aa898b0a8505dbd529ee6))
+
 #### 1.4.1 (2022-06-23)
 
 ##### Other Changes
