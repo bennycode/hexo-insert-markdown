@@ -1,3 +1,9 @@
+### 1.4.0 (2022-06-23)
+
+##### New Features
+
+*  Insert files from subdirectories ([52b27b60](https://github.com/bennycode/hexo-insert-markdown/commit/52b27b606fecbe6e9d8383fb338dca85f2c56b62))
+
 #### 1.3.1 (2022-04-10)
 
 ##### Bug Fixes
