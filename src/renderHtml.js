@@ -48,7 +48,7 @@ async function renderHtml(hexo, filePath, separator) {
         // Sort all fetched files by their filename (without taking directories into account)
         const nameA = path.parse(a).base;
         const nameB = path.parse(b).base;
-        return nameA.localeCompare(nameB);
+        return nameA.localeCompare(nameB, undefined, {numeric: true, sensitivity: 'base'});
       })
       .map(filePath => renderFile(hexo, filePath));
     const contents = await Promise.all(promises);
