@@ -36,5 +36,5 @@
     "release:patch": "generate-changelog -p -x \"chore,docs,refactor,style,test\" && yarn changelog:commit && npm version patch",
     "test": "node test/parseArgs.test.js"
   },
-  "version": "1.4.1"
+  "version": "1.4.2"
 }
