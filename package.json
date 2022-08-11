@@ -34,7 +34,7 @@
     "release:major": "generate-changelog -M -x \"chore,docs,refactor,style,test\" && yarn changelog:commit && npm version major",
     "release:minor": "generate-changelog -m -x \"chore,docs,refactor,style,test\" && yarn changelog:commit && npm version minor",
     "release:patch": "generate-changelog -p -x \"chore,docs,refactor,style,test\" && yarn changelog:commit && npm version patch",
-    "test": "node test/parseArgs.test.js"
+    "test": "node --test --no-warnings test"
   },
   "version": "1.4.2"
 }

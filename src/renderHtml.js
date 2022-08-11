@@ -1,6 +1,7 @@
 const pkg = require('../package.json');
 const path = require('path');
 const fs = require('fs');
+const {sortFileName} = require("./sortFileNames");
 const {readdir} = require('fs').promises;
 
 function renderSeparator(hexo, separator) {
@@ -44,12 +45,7 @@ async function renderHtml(hexo, filePath, separator) {
 
     const promises = files
       .filter(filePath => path.extname(filePath) === '.md')
-      .sort(function (a, b) {
-        // Sort all fetched files by their filename (without taking directories into account)
-        const nameA = path.parse(a).base;
-        const nameB = path.parse(b).base;
-        return nameA.localeCompare(nameB, undefined, {numeric: true, sensitivity: 'base'});
-      })
+      .sort(sortFileName)
       .map(filePath => renderFile(hexo, filePath));
     const contents = await Promise.all(promises);
     return contents.join(renderSeparator(hexo, separator));

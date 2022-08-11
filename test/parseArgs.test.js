@@ -1,20 +1,23 @@
-const assert = require('assert');
+const assert = require('node:assert');
+const {describe, it} = require('node:test');
 const parseArgs = require('../src/parseArgs');
 
-assert.deepEqual(
-  parseArgs(['error-ts/includes', '---', '{ "max_depth": 2 }']),
-  ['error-ts/includes', '---', '{ "max_depth": 2 }'],
-  'Parse all arguments'
-);
+describe('parseArgs', () => {
+  it('parses all arguments', () => {
+    const actual = parseArgs(['error-ts/includes', '---', '{ "max_depth": 2 }']);
+    const expected = ['error-ts/includes', '---', '{ "max_depth": 2 }'];
+    assert.deepEqual(actual, expected);
+  });
 
-assert.deepEqual(
-  parseArgs(['error-ts/includes', '---']),
-  ['error-ts/includes', '---', ''],
-  'Parse separator from 2 arguments'
-);
+  it('parses separator from 2 arguments', () => {
+    const actual = parseArgs(['error-ts/includes', '---']);
+    const expected = ['error-ts/includes', '---', ''];
+    assert.deepEqual(actual, expected);
+  });
 
-assert.deepEqual(
-  parseArgs(['error-ts/includes', '{ "max_depth": 2 }']),
-  ['error-ts/includes', '', '{ "max_depth": 2 }'],
-  'Parse TOC options from 2 arguments'
-);
+  it('parses TOC options from 2 arguments', () => {
+    const actual = parseArgs(['error-ts/includes', '{ "max_depth": 2 }']);
+    const expected = ['error-ts/includes', '', '{ "max_depth": 2 }'];
+    assert.deepEqual(actual, expected);
+  });
+});
