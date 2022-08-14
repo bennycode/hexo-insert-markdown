@@ -1,9 +1,8 @@
-const path = require('path');
-
 function sortFileName(a, b) {
+  console.log('BENNY IS HERE!', a, b);
   // Sort all fetched files by their filename (without taking directories into account)
-  const nameA = path.parse(a).base;
-  const nameB = path.parse(b).base;
+  const nameA = a;
+  const nameB = b;
   return nameA.localeCompare(nameB, undefined, {numeric: true, sensitivity: 'base'});
 }
 
