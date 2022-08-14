@@ -40,5 +40,5 @@
     "release:patch": "generate-changelog -p -x \"chore,docs,refactor,style,test\" && yarn changelog:commit && npm version patch",
     "test": "node --test --no-warnings test"
   },
-  "version": "1.4.2"
+  "version": "1.4.3"
 }
