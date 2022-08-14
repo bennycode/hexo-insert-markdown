@@ -1,3 +1,9 @@
+#### 1.4.3 (2022-08-14)
+
+##### Bug Fixes
+
+*  Declare Hexo dependency ([c4193cec](https://github.com/bennycode/hexo-insert-markdown/commit/c4193cec9cfe580e2f3a0ac5bc8d1dd24b0f964c))
+
 #### 1.4.2 (2022-06-23)
 
 ##### Bug Fixes
