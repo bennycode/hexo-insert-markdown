@@ -1,3 +1,9 @@
+#### 1.4.4 (2022-08-15)
+
+##### Bug Fixes
+
+*  Remove log statement ([3dca8975](https://github.com/bennycode/hexo-insert-markdown/commit/3dca89755acd784a7dbf8ae9669d77ca492935b9))
+
 #### 1.4.3 (2022-08-14)
 
 ##### Bug Fixes
