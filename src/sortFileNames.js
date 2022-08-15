@@ -1,5 +1,4 @@
 function sortFileName(a, b) {
-  console.log('BENNY IS HERE!', a, b);
   // Sort all fetched files by their filename (without taking directories into account)
   const nameA = a;
   const nameB = b;
